@@ -47,9 +47,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 }
 
-// ✅ Forcer la compatibilité JVM entre Java et Kotlin
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-    kotlinOptions {
-        jvmTarget = "1.8"
+// ✅ Nouvelle configuration Kotlin avec jvmToolchain
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
     }
 }
