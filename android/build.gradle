@@ -5,11 +5,11 @@ buildscript {
     ext.kotlin_version = '1.7.20'
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.android.tools.build:gradle:8.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -17,7 +17,7 @@ buildscript {
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -26,13 +26,14 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace "yukams.app.background_locator_2"
-    compileSdkVersion 29
+    compileSdkVersion 33
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
         minSdkVersion 19
+        targetSdkVersion 33
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
@@ -47,7 +48,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 }
 
-// ✅ Nouvelle configuration Kotlin avec jvmToolchain
+// Kotlin JVM Toolchain pour Java 8
 kotlin {
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(8))
