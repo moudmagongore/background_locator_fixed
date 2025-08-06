@@ -10,7 +10,11 @@ android {
     namespace "yukams.app.background_locator_2"
     compileSdkVersion 33
 
-    // ✅ C'est CE BLOC QUI MANQUAIT
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -30,11 +34,9 @@ android {
     }
 }
 
-
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
     implementation "com.google.android.gms:play-services-location:21.0.1"
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.android.material:material:1.0.0'
 }
-
